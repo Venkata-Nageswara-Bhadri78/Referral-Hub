@@ -1,14 +1,14 @@
 // Express, coms Importing and Utilizing here
 const express = require('express');
 const cors = require('cors');
-
 // Password Hashing using bcrypt
 const bcrypt = require('bcrypt');
+// SQL Importing and connecting to file credentials.db
+const sqlite3 = require('sqlite3').verbose();
+
 const saltRounds = 10;
 
 
-// SQL Importing and connecting to file credentials.db
-const sqlite3 = require('sqlite3').verbose();
 
 const db = new sqlite3.Database('./credentials.db', sqlite3.OPEN_READWRITE, (err) => {
     if(err){
@@ -16,15 +16,25 @@ const db = new sqlite3.Database('./credentials.db', sqlite3.OPEN_READWRITE, (err
     }
 })
 
-
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+        "http://localhost:5173",          
+        "https://referral-hub-psi.vercel.app"   
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
+
+
 app.use(express.json())
 
 const PORT = process.env.PORT || 4000;
 
-
+app.get("/", (req, res) => {
+    res.send("Backend is running ✅");
+});
 
 // -------------- REFFERAL SEEKERS TABLES AND INFORMATION ----------------------
 
