@@ -4,7 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { useLocation, useParams } from 'react-router-dom';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL.replace(/\/$/, "");
 
 const ReferralDetails = ({user}) => {
 

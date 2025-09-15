@@ -5,7 +5,7 @@ import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import LoginForm from './LoginForm';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL.replace(/\/$/, "");
 
 const SignUpForm = ({referralType, signup, setSignup}) => {
 

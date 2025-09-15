@@ -5,7 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL.replace(/\/$/, "");
 
 const ReferralCard = ({card}) => {
 

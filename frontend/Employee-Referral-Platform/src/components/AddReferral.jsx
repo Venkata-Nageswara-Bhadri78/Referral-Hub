@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CustomDatePicker from '../ui/CustomDatePicker'
 import SkillsAutocomplete from '../ui/SkillsAutoComplete'
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL.replace(/\/$/, "");
 
 const AddReferral = ({email}) => {
     const [jobTitle, setJobtitle] = useState("");
