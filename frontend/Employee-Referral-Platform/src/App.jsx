@@ -26,6 +26,7 @@ function App() {
     }
   }, []);
   // console.log("App.jsx Refferal TYpe : "+referralType)
+  //
   
   return (
     <div className='flex flex-col min-h-screen'>
