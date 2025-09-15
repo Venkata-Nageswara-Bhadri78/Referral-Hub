@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import ReferralCard from './ReferralCard';
 import { Link } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const SubmitedReferrals = ({email, isHomePage=false}) => {
 
     const [submitted, setSubmitted] = useState([]);
@@ -9,7 +11,7 @@ const SubmitedReferrals = ({email, isHomePage=false}) => {
         if (!email) return;
         const fetchSubmitted = async () => {
             try{                
-                const response = await fetch("http://localhost:4000/SubmittedReferrals", {
+                const response = await fetch(`${API_URL}/SubmittedReferrals`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({email: email})

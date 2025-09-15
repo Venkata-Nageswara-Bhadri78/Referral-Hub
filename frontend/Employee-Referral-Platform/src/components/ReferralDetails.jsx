@@ -4,6 +4,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { useLocation, useParams } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ReferralDetails = ({user}) => {
 
     const [applied, setApplied] = useState(false);
@@ -15,7 +17,7 @@ const ReferralDetails = ({user}) => {
     // console.log(card_id + " --------- "+card.id)
     useEffect(() => {
         const checking = async () => {
-            const response = await fetch("http://localhost:4000/CheckApplied", {
+            const response = await fetch(`${API_URL}/CheckApplied`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({id: card.id || card_id})
@@ -34,7 +36,7 @@ const ReferralDetails = ({user}) => {
 
     const handleSubmit = async () => {
         try{
-            const response = await fetch("http://localhost:4000/AppliedReferrals", {
+            const response = await fetch(`${API_URL}/AppliedReferrals`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({card_id: card.id || card_id, user_email: user})

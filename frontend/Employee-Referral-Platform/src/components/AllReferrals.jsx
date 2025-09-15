@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import ReferralCard from './ReferralCard';
 import { Link } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const AllReferrals = ({email, isHomePage=false}) => {
     // const isHomePage = true;
 
@@ -11,7 +13,7 @@ const AllReferrals = ({email, isHomePage=false}) => {
         if (!email) return;
         const fetchReferrals = async () => {
             try{                
-                const response = await fetch("http://localhost:4000/all-referrals", {
+                const response = await fetch(`${API_URL}/all-referrals`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({email: email})

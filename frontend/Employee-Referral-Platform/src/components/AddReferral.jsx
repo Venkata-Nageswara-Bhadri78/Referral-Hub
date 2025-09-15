@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import CustomDatePicker from '../ui/CustomDatePicker'
 import SkillsAutocomplete from '../ui/SkillsAutoComplete'
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 const AddReferral = ({email}) => {
     const [jobTitle, setJobtitle] = useState("");
     const [companyName, setCompanyName] = useState("");
@@ -26,7 +29,7 @@ const AddReferral = ({email}) => {
         e.preventDefault();
 
         try{
-            const response = await fetch("http://localhost:4000/add-referral", {
+            const response = await fetch(`${API_URL}/add-referral`, {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({

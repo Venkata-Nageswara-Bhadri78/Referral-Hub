@@ -5,6 +5,8 @@ import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 import LoginForm from './LoginForm';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const SignUpForm = ({referralType, signup, setSignup}) => {
 
     const [userFullName, setUserFullName] = useState("");
@@ -45,7 +47,7 @@ const create_providers_table = `CREATE TABLE IF NOT EXISTS referral_providers (
             return alert("Password and Confirm Password should be same - Try Again")
         }
         try{
-            const response = await fetch("http://localhost:4000/signup", {
+            const response = await fetch(`${API_URL}/signup`, {
                 method : "POST",
                 headers: {"Content-Type" : "application/json"},
                 body: JSON.stringify({referralType: referralType, userFullName: userFullName, userEmail: userEmail, userPassword: userPassword, userCompany: userCompany, userDesignation: userDesignation, userExperience: userExperience})

@@ -5,13 +5,15 @@ import { FaLocationDot } from "react-icons/fa6";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const ReferralCard = ({card}) => {
 
   const [cardu, setCardu] = useState([]);
 
   useEffect(() => {
     const fetchDetails = async () => {
-      const details = await fetch("http://localhost:4000/CardDetails", {
+      const details = await fetch(`${API_URL}/CardDetails`, {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({card_id: '10019'})

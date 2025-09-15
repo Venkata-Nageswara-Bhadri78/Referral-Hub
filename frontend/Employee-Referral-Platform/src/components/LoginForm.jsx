@@ -4,6 +4,8 @@ import FormLabel from '@mui/joy/FormLabel';
 import Input from '@mui/joy/Input';
 import Button from '@mui/joy/Button';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const LoginForm = ({user, setUser, referralType, signup, setSignup}) => {
 
     const [userEmail, setUserEmail] = useState("");
@@ -14,7 +16,7 @@ const LoginForm = ({user, setUser, referralType, signup, setSignup}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const response  = await fetch("http://localhost:4000/login", {
+            const response  = await fetch(`${API_URL}/login`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({referralType: referralType, userEmail:userEmail, userPassword: userPassword})
