@@ -268,7 +268,7 @@ db.run(applied_query, [], (err) => {
     if(err){
         return console.log(err.message);
     }
-    return console.log("Sucessfully Created Applied Referrals")
+    // return console.log("Sucessfully Created Applied Referrals")
 })
 
 app.post('/AppliedReferrals', (req, res) => {
@@ -359,7 +359,7 @@ app.post('/signup', async (req, res) => {
         db.run(insert_query, [userFullName, userEmail, hashedPassword], (err) => {
             if(err){
                 console.log(err.message);
-                return res.send({success: false, message: "Error in Signup of User - Seeker"})
+                return res.send({success: false, message: `Error in Signup of User - Seeker : ${err.message}`})
             }
     
             res.send({success: true, message: "User Sucessfully Signed Up"})
@@ -387,6 +387,7 @@ app.post('/signup', async (req, res) => {
 //     }
 //     console.log(data)
 // })
+
 app.post('/login', (req, res) => {
     const {referralType, userEmail, userPassword} = req.body;
 
@@ -422,22 +423,22 @@ app.post('/login', (req, res) => {
 // ---------------------- Delete ----------------
 
 // List all tables in SQLite
-db.all("SELECT name FROM sqlite_master WHERE type='table'", [], (err, rows) => {
-    if (err) {
-        return console.error(err.message);
-    }
-    console.log("Tables:");
-    rows.forEach(row => {
-        console.log(row.name);
-    });
-});
+// db.all("SELECT name FROM sqlite_master WHERE type='table'", [], (err, rows) => {
+//     if (err) {
+//         return console.error(err.message);
+//     }
+//     console.log("Tables:");
+//     rows.forEach(row => {
+//         console.log(row.name);
+//     });
+// });
 
-db.run('DELETE FROM Referral_Seeker', function(err) {
-    if (err) {
-        return console.error(err.message);
-    }
-    console.log(`All rows deleted from your_table_name`);
-});
+// db.run('DELETE FROM Referral_Seeker', function(err) {
+//     if (err) {
+//         return console.error(err.message);
+//     }
+//     console.log(`All rows deleted from your_table_name`);
+// });
 
 // db.all("select * from Applied_referrals", [], (err, row) => {
 //     if(err){
