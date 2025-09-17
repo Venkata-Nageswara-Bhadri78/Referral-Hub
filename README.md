@@ -1,5 +1,7 @@
 # The Referral Hub
 
+Deployment Link: https://referral-hub-psi.vercel.app/
+
 **The Referral Hub** is a full-stack platform designed to connect **referral seekers** with **referral providers** in a streamlined, user-friendly environment. This project is built with modern web technologies and provides a complete workflow for both types of users to manage and access job referrals.
 
 ---
@@ -44,11 +46,11 @@ The platform offers a seamless experience from signup/login to dashboard access 
 - It includes various tabs and sections depending on the user type:
 
 #### Common Sections for Both Users
-- **Default Referrals** – Pre-added sample referrals for demonstration.
-- **All Referrals** – Displays all referrals added by registered referral providers.
+- **Default Referrals** – Pre-added sample referrals for demonstration (Just for display, but not useful)
+- **All Referrals** – Displays all referrals added by all registered referral providers.
 
 #### Referral Seeker-Specific
-- **Submitted Referrals** – Displays all referrals the user has applied for.
+- **Submitted Referrals** – Displays all referrals the user has applied for (not the default referrals).
 
 #### Referral Provider-Specific
 - **Posted Referrals** – Allows providers to add new referrals and see all referrals they have posted.
@@ -90,7 +92,8 @@ Follow these steps to set up **The Referral Hub** locally on your machine:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/Venkata-Nageswara-Bhadri78/Referral-Hub.git
-cd <your-repo-folder>
+
+cd Referral-Hub.git
 
 # 2. Move to backend and Install backend dependencies
 cd backend
@@ -113,3 +116,4 @@ cd ../frontend
 npm start
 # Option 2: development mode
 npm run dev
+```
